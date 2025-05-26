@@ -1,6 +1,6 @@
 <div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
     <div class="w-full max-w-md">
-        <div class="bg-white rounded-lg shadow-md p-8">
+        <div class="bg-white dark:bg-white rounded-lg shadow-md p-8">
             <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Daftar Akun Baru</h2>
             
             <form wire:submit.prevent="register" class="space-y-6">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,48 +14,29 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
      <script>
         tailwind.config = {
-            darkMode: false,
+            darkMode: 'class', // Ubah ke 'class' untuk kontrol manual
         }
     </script>
+    <style>
+        :root {
+            --primary-50: 236 253 245;
+            --primary-100: 209 250 229;
+            /* tambahkan warna lain sesuai kebutuhan */
+        }
+        .fi-form {
+            color-scheme: light only !important;
+        }
+        html, body {
+            color-scheme: light !important;
+        }
+    </style>
     @filamentStyles
-    {{-- <style>
-        [x-cloak] { display: none !important; }
-        .fi-input-label {
-            color: #000000 !important; /* gray-700 */
-            font-weight: 500 !important;
-            margin-bottom: 0.5rem !important;
-        }
-        .fi-input {
-            background-color: white !important;
-            color: #111827 !important; /* gray-900 */
-            border-color: #d1d5db !important; /* gray-300 */
-            border-radius: 0.375rem !important; /* rounded-md */
-            padding: 0.5rem 0.75rem !important;
-        }
-        .fi-input:focus {
-            border-color: #3b82f6 !important; /* blue-500 */
-            ring-color: #3b82f6 !important;
-        }
-        .fi-input-error {
-            color: #dc2626 !important; /* red-600 */
-            font-size: 0.875rem !important;
-            margin-top: 0.25rem !important;
-        }
-          .dark .fi-input, .dark .bg-white {
-            background-color: white !important;
-            color: #111827 !important;
-        }
-    </style> --}}
 </head>
 <body class="font-sans antialiased bg-gray-100">
     {{ $slot }}
-    
     <script>
-        window.addEventListener('confirmSubmission', event => {
-            if (confirm(event.detail.message)) {
-                Livewire.emit(event.detail.callback);
-            }
-        });
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
     </script>
     @filamentScripts
 </body>
